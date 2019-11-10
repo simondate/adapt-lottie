@@ -1,0 +1,16 @@
+<div class="lottie-inner component-inner">
+    {{> component this}}
+    <div class="lottie-container{{#if attribution}} has-attribution{{/if}}">
+        <img class="lottie-fallback" src="{{_fallback.src}}" alt="{{_fallback.alt}}"/>
+        {{#if _animation.alt }}
+            <div class="lottie-label" hidden>{{_animation.alt}}</div>
+        {{/if}}
+        {{#if _animation.description}}
+            <div class="lottie-description" hidden>{{_animation.description}}</div>
+        {{/if}}
+    </div>
+
+    {{#if attribution}}
+        <div class="lottie-attribution">{{{attribution}}}</div>
+    {{/if}}
+</div>

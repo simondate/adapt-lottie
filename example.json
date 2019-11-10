@@ -1,20 +1,24 @@
 {
-    "_id":"c-05",
-    "_parentId":"b-05",
-    "_type":"component",
-    "_component":"bodymovin",
-    "_classes":"",
-    "_layout":"left",
-    "title":"The Bodymovin component",
-    "displayTitle":"The Bodymovin component",
-    "body":"This component you're reading is the bodymovin component.",
-    "instruction":"",
-    "_renderer": "svg",
-    "_loop": true,
+    "_id": "c-10",
+    "_parentId": "b-05",
+    "_type": "component",
+    "_component": "lottie",
+    "_classes": "",
+    "_layout": "right",
+    "title": "c-10",
+    "displayTitle": "",
+    "body": "",
+    "instruction": "",
+    "_fallback": {
+        "src": "course/en/images/single_width.jpg",
+        "alt": "The letter B."
+    },
+    "_animation": {
+        "src": "course/en/images/lottiesample.json",
+        "alt": "An animated 'B'",
+        "description": "this animation contains with multiple fluid, animating layers in the shape of a B, rolling down like the pages in a book. Stars and squiggles appear as each layer lands."
+    },
     "_autoplay": true,
-    "_bodymovinMedia": {
-      "json": "course/en/bodymovin/data.json",
-      "js": "course/en/bodymovin/data.js",
-      "css": "course/en/bodymovin/data.css"
-    }
+    "_loop": true,
+    "attribution": "AirBnB Lottie Sample"
 }

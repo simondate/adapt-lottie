@@ -29,6 +29,93 @@
       "validators": [],
       "help": "This is the instruction text",
       "translatable": true
+    },
+    "_fallback": {
+      "type":"object",
+      "required":true,
+      "title": "Fallback Graphic",
+      "properties":{
+        "src": {
+          "type":"string",
+          "required":true,
+          "default": "",
+          "title": "Fallback Graphic",
+          "inputType": "Asset:image",
+          "validators": ["required"],
+          "help": "The fallback graphic that appears if the Animation fails to load or the user prefers not to see animation."
+        },
+        "alt": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Alternative Text",
+          "inputType": "Text",
+          "validators": [],
+          "help": "The alternative text for the fallback image.",
+          "translatable": true
+        }
+      }
+    },
+    "_animation": {
+      "type":"object",
+      "required":true,
+      "title": "Lottie Animation",
+      "properties":{
+        "src": {
+          "type":"string",
+          "required":true,
+          "default": "",
+          "title": "Lottie Source (*.json)",
+          "inputType": "Asset:other",
+          "validators": ["required"],
+          "help": "JSON file exported using the bodymovin plugin."
+        },
+        "alt": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Animation Alt",
+          "inputType": "Text",
+          "validators": [],
+          "help": "The alternative text for the animation",
+          "translatable": true
+        },
+        "description": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Animation Description",
+          "inputType": "TextArea",
+          "validators": [],
+          "help": "Longer description of the animation. Can be used when the animation content is not described in adjacent text.",
+          "translatable": true
+        }
+      }
+    },
+    "attribution": {
+      "type":"string",
+      "required":false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Text to be displayed as an attribution",
+      "translatable": true
+    },
+    "_autoplay": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Autoplay Animation?",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_loop": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Loop Animation",
+      "inputType": "Checkbox",
+      "validators": []
     }
   }
 }
