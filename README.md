@@ -1,33 +1,33 @@
-# adapt-bodymovin  
+# adapt-lottie  
 
-**adapt-bodymovin** is a component that allows the bodymovin After Effects plugin to be used in Adapt learning courses.  
+**adapt-lottie** is a component that allows the bodymovin After Effects plugin to be used in Adapt learning courses.  
 
 
 ## Installation
 
 It may be installed with the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run the following from the command line:  
-`adapt install adapt-bodymovin`
+`adapt install adapt-lottie`
 
     Alternatively, this component can also be installed by adding the following line of code to the *adapt.json* file:  
-    `"adapt-bodymovin": "*"`  
+    `"adapt-lottie": "*"`  
     Then running the command:  
     `adapt install`  
     (This second method will reinstall all plug-ins listed in *adapt.json*.)  
 
-* If **adapt-bodymovin** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/adaptlearning/adapt_authoring/wiki/Plugin-Manager).  
+* If **adapt-lottie** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/adaptlearning/adapt_authoring/wiki/Plugin-Manager).  
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ## Settings Overview
 
-The attributes listed below are used in *components.json* to configure **Text**, and are properly formatted as JSON in [*example.json*](https://github.com/dancgray/adapt-bodymovin/blob/master/example.json).
+The attributes listed below are used in *components.json* to configure **Text**, and are properly formatted as JSON in [*example.json*](https://github.com/dancgray/adapt-lottie/blob/master/example.json).
 
 ### Attributes
 
 [**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. [Read more](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes).
 
-**_component** (string): This value must be: `bodymovin`.
+**_component** (string): This value must be: `lottie`.
 
-**_classes** (string): CSS class name to be applied to **adapt-bodymovin**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+**_classes** (string): CSS class name to be applied to **adapt-lottie**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
 
 **_layout** (string): This defines the horizontal position of the component in the block. Acceptable values are `full`, `left` or `right`.  
 
@@ -47,9 +47,9 @@ To be updated
 
 
 ----------------------------
-**Version number:**  0.0.1  
-**Framework versions:** 2+  
+**Version number:**  0.9.0  
+**Framework versions:** 4+  
 **Author / maintainer:** [Dan Gray](https://github.com/dancgray)   
-**Accessibility support:** To be  confirmed   
-**RTL support:** To be  confirmed  
-**Cross-platform coverage:** To be  confirmed
+**Accessibility support:** Working / To be confirmed   
+**RTL support:** To be confirmed  
+**Cross-platform coverage:** To be confirmed
