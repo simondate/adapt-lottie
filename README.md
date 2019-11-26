@@ -71,9 +71,9 @@ guide the learner’s interaction with the component.
 
 ## Accessibility
 
-- Remember to include an **alt** attribute for the fallback image.
-- The animation's **alt** attribute is intended to be a short title. If used for instructional, the course content should
- describe the animation in adjacent text. 
+- Remember to include an **alt** attribute for both the fallback image and the animation itself.
+- The animation's **alt** attribute is intended to be a short title. If the animation is used for instructional purposes, 
+ the course content should describe the animation in adjacent text. 
 - If the course content cannot describe the animation, the **description** attribute should be supplied with a complete
 description of the animation. 
 
@@ -81,12 +81,15 @@ description of the animation.
 
 ## Limitations
 
-- The Adapt Lottie component can only use the SVG renderer, without images.
+- The Adapt Lottie component can only use the bodymovin SVG renderer. 
+- The animation must be created as **vector-only** animation. 
+- The animation should avoid pixel effects (such as the non-SVG versions of blur, shadow, etc.) that would generate 
+ additional images.
 
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
-**Version number:**  0.9.0  
+**Version number:**  0.9.10  
 **Framework versions:** 2.4+  
 **Author / maintainer:** [Dan Gray](https://github.com/dancgray)   
 **Accessibility support:** Working / To be confirmed   
