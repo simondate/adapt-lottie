@@ -42,7 +42,7 @@
           "title": "Fallback Graphic",
           "inputType": "Asset:image",
           "validators": ["required"],
-          "help": "The fallback graphic that appears if the Animation fails to load or the user prefers not to see animation."
+          "help": "The fallback graphic that appears if the animation fails to load."
         },
         "alt": {
           "type":"string",
@@ -77,7 +77,7 @@
           "title": "Animation Alt",
           "inputType": "Text",
           "validators": [],
-          "help": "The alternative text for the animation",
+          "help": "The short alternative text for the animation.",
           "translatable": true
         },
         "description": {
@@ -87,7 +87,7 @@
           "title": "Animation Description",
           "inputType": "TextArea",
           "validators": [],
-          "help": "Longer description of the animation. Can be used when the animation content is not described in adjacent text.",
+          "help": "A longer description of the animation to be used when the animation content is not described in adjacent text.",
           "translatable": true
         }
       }
@@ -113,7 +113,15 @@
       "type": "boolean",
       "required": true,
       "default": true,
-      "title": "Loop Animation",
+      "title": "Loop Animation?",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_showPauseControl": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Show Play/Pause Button?",
       "inputType": "Checkbox",
       "validators": []
     }

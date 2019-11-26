@@ -1,3 +1,7 @@
+.lottie-inner {
+  position: relative;
+}
+
 .lottie-description,
 .lottie-label {
   border: 0 !important;
@@ -17,4 +21,72 @@
 .lottie-label[hidden],
 .lottie-fallback[hidden] {
   display: none !important;
+}
+
+.lottie-play-pause {
+  display: none;
+  position: absolute;
+  bottom: @component-padding;
+  right: @component-padding;
+  padding: @button-padding;
+  fill: #fff;
+  opacity: .3;
+  .play-transitions();
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  svg {
+    display: none;
+    width: 16px;
+    height: 16px;
+  }
+
+  &[aria-label="play"] {
+    display: block;
+
+    .play {
+      display: block;
+    }
+  }
+  &[aria-label="pause"] {
+    display: block;
+
+    .pause {
+      display: block;
+    }
+  }
+}
+
+.has-pause {
+  .lottie-attribution {
+    @padding: (@component-padding * 2) + (@button-padding * 2) + 16px;
+    max-width: calc(100% - @padding);
+  }
+
+  &:hover,
+  &:focus-within {
+    .lottie-play-pause {
+      opacity: 1;
+    }
+  }
+}
+
+// Guards
+.play-transitions() when (@duration) {
+  .do-transition(@duration)
+}
+
+.play-transitions() when not (@duration) {
+  .do-transition(.25s);
+}
+
+.do-transition(@time){
+  @duration: .25s;
+  -webkit-transition: background-color @time ease-in, color @time ease-in, border-color @time ease-in, opacity @time ease-in;
+  -moz-transition: background-color @time ease-in, color @time ease-in, border-color @time ease-in, opacity @time ease-in;
+  -ms-transition: background-color @time ease-in, color @time ease-in, border-color @time ease-in, opacity @time ease-in;
+  transition: background-color @time ease-in, color @time ease-in, border-color @time ease-in, opacity @time ease-in;
 }

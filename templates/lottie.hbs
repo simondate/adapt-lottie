@@ -1,6 +1,6 @@
-<div class="lottie-inner component-inner">
+<div class="lottie-inner component-inner{{#if attribution}} has-attribution{{/if}}{{#if _showPauseControl}} has-pause{{/if}}">
     {{> component this}}
-    <div class="lottie-container{{#if attribution}} has-attribution{{/if}}">
+    <div class="lottie-container">
         <img class="lottie-fallback" src="{{_fallback.src}}" alt="{{_fallback.alt}}"/>
         {{#if _animation.alt }}
             <div class="lottie-label" hidden>{{_animation.alt}}</div>
@@ -9,8 +9,17 @@
             <div class="lottie-description" hidden>{{_animation.description}}</div>
         {{/if}}
     </div>
-
     {{#if attribution}}
         <div class="lottie-attribution">{{{attribution}}}</div>
+    {{/if}}
+    {{#if _showPauseControl}}
+        <button class="lottie-play-pause" type="button">
+            <svg class="pause" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 28">
+                <path d="M24 3v22l-1 1h-8l-1-1V3l1-1h8l1 1zM10 3v22l-1 1H1l-1-1V3l1-1h8l1 1z"></path>
+            </svg>
+            <svg class="play" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 22 28">
+                <path d="M22 14L1 26l-1-1V2h1l21 12z"></path>
+            </svg>
+        </button>
     {{/if}}
 </div>

@@ -5,7 +5,7 @@
     "_component": "lottie",
     "_classes": "",
     "_layout": "right",
-    "title": "c-10",
+    "title": "Sample AirBnB Animation",
     "displayTitle": "",
     "body": "",
     "instruction": "",
@@ -20,5 +20,6 @@
     },
     "_autoplay": true,
     "_loop": true,
+    "_showPauseControl": true,
     "attribution": "AirBnB Lottie Sample"
 }

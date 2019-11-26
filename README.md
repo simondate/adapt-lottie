@@ -2,7 +2,6 @@
 
 **adapt-lottie** is a component that allows the bodymovin After Effects plugin to be used in Adapt learning courses.  
 
-
 ## Installation
 
 It may be installed with the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run the following from the command line:  
@@ -41,14 +40,43 @@ guide the learner’s interaction with the component.
 **body** (string): Although optional, this text constitutes what is thought of as the primary *text* of the **Text** component. HTML is permitted.  
 <div float align=right><a href="#top">Back to Top</a></div>
 
+**\_fallback** (object): An image to be displayed while the animation is loading or if the animation fails to load. It contains values for **src** and **alt**.
+
+> **alt** (string): This text becomes the fallback image’s alt attribute.
+
+> **src** (string): File name (including path) of the image used for a fallback. Path should be relative to the src folder (e.g., course/en/images/origami-menu-two.jpg).
+
+**\_animation** (object): The animation to be displayed. It contains values for **src**, **alt** &amp; **description*.
+
+> **alt** (string): The alternative text for this animation. This text should serve as a title for the animation.
+
+> **description** (string): Optional fully accessible description of the animation. 
+
+> **src** (string): File name (including path) of the JSON file produced by the bodymovin plugin. Path should be relative to the src folder (e.g., course/en/images/my-awesome-animation.json).
+    
+**attribution** (string): Optional text to be displayed as an attribution. By default it is displayed below the image. Adjust positioning by modifying CSS. Text can contain HTML tags, e.g., Copyright © 2015 by <b>Lukasz 'Severiaan' Grela</b>.
+
+**\_autoplay** (boolean): Whether the animation should begin playback when loaded.
+
+**\_loop** (boolean): Whether the animation playback should be looped.
+
+**\_showPauseControl** (boolean): If true, displays a small Play/Pause button at the bottom right of the animation.
+
+## Accessibility
+
+- Remember to include an **alt** attribute for the fallback image.
+- The animation's **alt** attribute is intended to be a short title. If used for instructional, the course content should
+ describe the animation in adjacent text. 
+- If the course content cannot describe the animation, the **description** attribute should be supplied with a complete
+description of the animation. 
+
 ## Limitations
 
-To be updated
-
+- The Adapt Lottie component can only use the SVG renderer, without images.
 
 ----------------------------
 **Version number:**  0.9.0  
-**Framework versions:** 4+  
+**Framework versions:** 2.4+  
 **Author / maintainer:** [Dan Gray](https://github.com/dancgray)   
 **Accessibility support:** Working / To be confirmed   
 **RTL support:** To be confirmed  
