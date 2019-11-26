@@ -6,15 +6,15 @@
 
 It may be installed with the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run the following from the command line:
 
-    `adapt install adapt-lottie`
+    adapt install adapt-lottie
 
 Alternatively, this component can also be installed by adding the following line of code to the *adapt.json* file:
     
-    `"adapt-lottie": "*"`  
+    "adapt-lottie": "*"  
 
 Then running the command:
 
-    `adapt install`  
+    adapt install  
 
 (This second method will reinstall all plug-ins listed in *adapt.json*.)  
 
