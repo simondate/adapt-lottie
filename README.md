@@ -38,7 +38,6 @@ The attributes listed below are used in *components.json* to configure **Text**,
 guide the learner’s interaction with the component.
 
 **body** (string): Although optional, this text constitutes what is thought of as the primary *text* of the **Text** component. HTML is permitted.  
-<div float align=right><a href="#top">Back to Top</a></div>
 
 **\_fallback** (object): An image to be displayed while the animation is loading or if the animation fails to load. It contains values for **src** and **alt**.
 
@@ -62,6 +61,8 @@ guide the learner’s interaction with the component.
 
 **\_showPauseControl** (boolean): If true, displays a small Play/Pause button at the bottom right of the animation.
 
+<div float align=right><a href="#top">Back to Top</a></div>
+
 ## Accessibility
 
 - Remember to include an **alt** attribute for the fallback image.
@@ -70,9 +71,13 @@ guide the learner’s interaction with the component.
 - If the course content cannot describe the animation, the **description** attribute should be supplied with a complete
 description of the animation. 
 
+<div float align=right><a href="#top">Back to Top</a></div>
+
 ## Limitations
 
 - The Adapt Lottie component can only use the SVG renderer, without images.
+
+<div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
 **Version number:**  0.9.0  
