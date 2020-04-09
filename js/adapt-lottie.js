@@ -17,7 +17,7 @@ define([
          * to monitor this setting for changes. Preserves the original autoplay settings.
          */
         preRender: function () {
-            this.onReducedMotionChanged = _.bind(this.onReducedMotionChanged, this);
+            this.onReducedMotionChanged = this.onReducedMotionChanged.bind( this );
             try {
                 this.reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
                 this.reducedMotionQuery.addEventListener('change', this.onReducedMotionChanged);
@@ -44,11 +44,11 @@ define([
          * postRender - Adapt Core Method
          */
         postRender: function () {
-            this.$el.imageready(_.bind(function () {
+            this.$el.imageready((function () {
                 this.setReadyStatus();
                 this.animationInit();
-                this.$( '.lottie-container' ).on( 'inview', _.bind( this.inView, this ) );
-            }, this));
+                this.$( '.lottie-container' ).on( 'inview', this.inView.bind( this ) );
+            }).bind( this ) );
         },
 
         /**
@@ -100,7 +100,7 @@ define([
                     autoplay: this.model.get('_autoplay'),
                     path: _animation.src
                 });
-                this.animation.addEventListener('data_ready', _.bind(this.onAnimationLoaded, this))
+                this.animation.addEventListener('data_ready', this.onAnimationLoaded.bind( this ) );
             }
         },
 
