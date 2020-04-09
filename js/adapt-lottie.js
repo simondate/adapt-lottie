@@ -17,7 +17,7 @@ define([
          * to monitor this setting for changes. Preserves the original autoplay settings.
          */
         preRender: function () {
-            this.onReducedMotionChanged = _.bind(this.onReducedMotionChanged, this);
+            this.onReducedMotionChanged = this.onReducedMotionChanged.bind( this );
             try {
                 this.reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
                 this.reducedMotionQuery.addEventListener('change', this.onReducedMotionChanged);
@@ -31,7 +31,7 @@ define([
 
         /**
          * checkIfResetOnRevisit - Adapt Component Requirement
-         *  Resets the model for this component if required.
+         * Resets the model for this component if required.
          */
         checkIfResetOnRevisit: function () {
             var isResetOnRevisit = this.model.get('_isResetOnRevisit');
@@ -44,38 +44,44 @@ define([
          * postRender - Adapt Core Method
          */
         postRender: function () {
-            this.setupInview();
-            this.$el.imageready(_.bind(function () {
+            this.$el.imageready((function () {
                 this.setReadyStatus();
                 this.animationInit();
-            }, this));
+                this.$( '.lottie-container' ).on( 'inview', this.inView.bind( this ) );
+            }).bind( this ) );
         },
 
         /**
-         * setupInview - Adapt Component Requirement
-         * If the component's body, instruction or title is visible, register's a callback
-         * to mark the component complete when scrolled into view. If these elements are not
-         * present, assumes the component is decoration only and marks the component complete.
+         * inView - Adapt Lottie Event Handler
+         * Handles the `inview` event, marking the component complete if both the bottom and top have
+         * been viewed by the user.
+         * Shamelessly borrowed from `adapt-contrib-graphic`
+         * @see https://github.com/adaptlearning/adapt-contrib-graphic/blob/v2.0.5/js/adapt-contrib-graphic.js
          */
-        setupInview: function () {
-            var selector = this.getInviewElementSelector();
-            if (!selector) {
-                this.setCompletionStatus();
-                return;
+        inView: function( event, visible, visiblePartX, visiblePartY ){
+            if ( visible ) {
+                if ( visiblePartY === 'top' ) {
+                    this._isVisibleTop = true;
+                } else if ( visiblePartY === 'bottom' ) {
+                    this._isVisibleBottom = true;
+                } else {
+                    this._isVisibleTop = true;
+                    this._isVisibleBottom = true;
+                }
+                if ( this._isVisibleTop && this._isVisibleBottom ) {
+                    this.$( '.lottie-container' ).off( 'inview' );
+                    this.setCompletionStatus( );
+                }
             }
-            this.setupInviewCompletion(selector);
         },
 
         /**
-         * getInviewElementSelector - Adapt Component Requirement
-         * Determines which element should be used for inview logic and returns the selector for that element.
+         * remove - Overridden ComponentView method
+         * Removes the event-listener for 'inview'.
          */
-        getInviewElementSelector: function () {
-            if (this.model.get('body')) return '.component-body';
-            if (this.model.get('instruction')) return '.component-instruction';
-            if (this.model.get('displayTitle')) return '.component-title';
-
-            return null;
+        remove: function() {
+            this.$( '.lottie-container' ).off( 'inview' );
+            ComponentView.prototype.remove.apply( this, arguments );
         },
 
         /**
@@ -94,7 +100,7 @@ define([
                     autoplay: this.model.get('_autoplay'),
                     path: _animation.src
                 });
-                this.animation.addEventListener('data_ready', _.bind(this.onAnimationLoaded, this))
+                this.animation.addEventListener('data_ready', this.onAnimationLoaded.bind( this ) );
             }
         },
 
